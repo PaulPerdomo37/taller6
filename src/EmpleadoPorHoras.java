@@ -15,10 +15,11 @@ public class EmpleadoPorHoras extends Empleado {
         System.out.println("Departamento: " + super.getDepartamento());
     }
 
+
+    // INLINE TEMP
     @Override
     public double calcularSalario() {
-        double salario = super.getHorasTrabajadas() * super.getTarifaHora();
-        return salario;
+        return super.getHorasTrabajadas() * super.getTarifaHora();
     }
 
     // Más metodos
