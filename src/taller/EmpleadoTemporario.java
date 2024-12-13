@@ -1,3 +1,4 @@
+package taller;
 public class EmpleadoTemporario extends Empleado {
     private int mesesContrato;
 

@@ -1,3 +1,4 @@
+package taller;
 public class EmpleadoFijo extends Empleado {
     private double bonoAnual;
 

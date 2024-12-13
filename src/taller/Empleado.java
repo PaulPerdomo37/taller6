@@ -1,3 +1,4 @@
+package taller;
 public class Empleado {
     private String nombre;  
     private double salarioBase;
@@ -16,18 +17,26 @@ public class Empleado {
 
     public double calcularSalario() {
         double salarioTotal = salarioBase;
-        if (salarioBase>0) {
-            if (horasTrabajadas >= 0) {
-                // Horas trabajadas normales = 40;
-                if (horasTrabajadas > 40) {
-                    salarioTotal += (horasTrabajadas - 40) * 50; // Pago de horas extra
-                }
-            }else {
-                throw new IllegalArgumentException("Las horas trabajadas deben ser mayor o igual a 0");
-            }
-        } else {
+        if (salarioBase <= 0) {
             throw new IllegalArgumentException("El salario debe ser mayor o igual a 0");
         }
+        
+        if (horasTrabajadas < 0) {
+            throw new IllegalArgumentException("Las horas trabajadas deben ser mayor o igual a 0");
+        }
+        
+        // Horas trabajadas normales = 40;
+        if (horasTrabajadas > 40) {
+            salarioTotal += (horasTrabajadas - 40) * 50; // Pago de horas extra
+        }
+
+        // esta solucion no cumple con OCP
+        // return calcularBonoPorDepartamento(salarioTotal);
+        return salarioTotal;
+    }
+
+    // No cumple OCP, se usan decoradores
+    private double calcularBonoPorDepartamento(double salarioTotal) {
         switch (departamento) {
             case "Sistemas":
                 salarioTotal += 20;
@@ -79,6 +88,12 @@ public class Empleado {
 
     public void setDepartamento(String departamento) {
         this.departamento = departamento;
+    }
+    public String getGenero() {
+        return genero;
+    }
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     // Más metodos

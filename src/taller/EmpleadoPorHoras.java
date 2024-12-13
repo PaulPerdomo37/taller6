@@ -1,3 +1,4 @@
+package taller;
 public class EmpleadoPorHoras extends Empleado {
     private double tarifaHora;
 
