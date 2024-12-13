@@ -4,6 +4,7 @@ public class Empleado {
     private int horasTrabajadas;
     private String departamento;
     private double tarifaHora;
+    private String genero;
 
     public Empleado(){}
     public Empleado(String nombre, double salarioBase, int horasTrabajadas, double tarifaHora, String departamento) {
